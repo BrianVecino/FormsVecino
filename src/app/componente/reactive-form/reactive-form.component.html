@@ -1,0 +1,54 @@
+<div class="container">
+<div class="row">
+ <div class="col-6">
+<form [formGroup]="form" (ngSubmit)="onSubmit() " class="row g-3">
+    <div class="row g-3">
+        <div class="col">
+          <input 
+          formControlName="nombre"
+          type="text" 
+          class="form-control"
+          [ngClass]="nombreControl?.status === 'VALID' ? 'is-valid' : '' " 
+          placeholder="Nombre" 
+          aria-label="First name">
+        </div>
+        <div class="col">
+          <input 
+          formControlName="apellido"
+          type="text" 
+          class="form-control"
+          [class.is-valid]="apellidoControl?.valid"
+          placeholder="Apellido" 
+          aria-label="Last name">
+        </div>
+      </div>
+      
+    <div class="col-md-6">
+      <label for="inputEmail4" class="form-label">Email</label>
+      <input
+      formControlName="email" 
+      type="email" 
+      class="form-control" 
+      [ngClass]="emailControl?.status === 'VALID' ? 'is-valid' : '' "
+      id="inputEmail4">
+    </div>
+    <div class="col-md-6">
+        <label for="inputPassword4" class="form-label">Password</label>
+        <input 
+        formControlName="password" 
+        type="password" 
+        class="form-control"
+        [class.is-valid]="passwordControl?.valid" 
+        id="inputPassword4">
+      </div>
+ <div class="col-12">
+    <button type="submit" class="btn btn-primary">Sign in</button>
+  </div>
+</form>
+</div>
+ <div class="col-6">
+    <pre> {{ form.status }} </pre>
+    <pre>{{ form.value | json }}</pre>
+  </div>
+</div>
+</div>
